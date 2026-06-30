@@ -1,9 +1,9 @@
 ---
-title: Autoregressive Image Generation without Vector Quantization
+title: 无向量离散化的自回归图像生成 (MAR)
 date: 2026-07-01 00:00:30 +0800
 categories:
   - 生成模型
-tags: [自回归, 图像生成]
+tags: [自回归, 图像生成, MAR, 何恺明, Transformer]
 ---
 ## 参考文章 [(4 条消息) 解读何恺明新作：不用向量离散化的自回归图像生成（Autoregressive Image Generation without Vector Quantization） - 知乎](https://zhuanlan.zhihu.com/p/710748815)
 自回归是一种根据之前已生成内容，不断递归预测下一项要生成的内容的生成模型。这种生成方式十分易懂，符合我们对生活的观察。比如我们希望模型生成一句话，第一个是「今」字，那么第二个字很可能就是「天」字。如果前三个字是「今天早」，那么第四个字就很可能是「上」。

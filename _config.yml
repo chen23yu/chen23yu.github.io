@@ -1,0 +1,119 @@
+theme: jekyll-theme-chirpy
+
+# 语言设置为中文 › http://www.lingoes.net/en/translator/langcode.htm
+lang: zh-CN
+
+# 时区设置为北京时间
+timezone: Asia/Shanghai
+
+# ↓ ------ 站点信息 ------
+title: Chenyu's Blog
+tagline: 记录学习与思考
+description: >-
+  Chenyu 的技术博客，记录学习过程与思考。
+
+url: "https://chen23yu.github.io"
+
+github:
+  username: chen23yu
+
+social:
+  name: chenyu23
+  email: 1293799201@qq.com
+  links:
+    - https://github.com/chen23yu
+
+webmaster_verifications:
+  google:
+  bing:
+  baidu:
+
+# 主题模式: light / dark / 留空跟随系统
+theme_mode:
+
+# 侧边栏头像，支持本地或网络图片
+avatar:
+
+# 是否在文章中显示目录
+toc: true
+
+comments:
+  provider:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+
+paginate: 10
+
+baseurl: ""
+
+# ------------ 以下选项不建议修改 ------------------
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/

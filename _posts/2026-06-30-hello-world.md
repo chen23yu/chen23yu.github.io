@@ -1,7 +1,7 @@
 ---
 title: 你好，世界！
 date: 2026-06-30 21:00:00 +0800
-categories: [博客, 入门]
+categories: [生成模型]
 tags: [欢迎]
 ---
 

@@ -1,0 +1,79 @@
+media:
+  input: public/images/uploads
+  output: /images/uploads
+  rename: safe
+  extensions: [png, jpg, jpeg, webp, gif, avif, svg]
+
+content:
+  - name: posts
+    label: 论文与博客
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    subfolders: false
+    filename:
+      template: '{year}-{month}-{day}-{primary}.md'
+      field: create
+    view:
+      primary: title
+      fields: [title, published, category, draft]
+      sort: published
+      order: desc
+    fields:
+      - name: title
+        label: 文章标题
+        type: string
+        required: true
+      - name: published
+        label: 发布日期
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+          time: false
+      - name: updated
+        label: 最后修改日期（可选）
+        type: date
+        default: ''
+        options:
+          format: yyyy-MM-dd
+          time: false
+      - name: description
+        label: 文章摘要
+        type: text
+        description: 显示在首页文章卡片中，建议用一两句话介绍内容。
+      - name: category
+        label: 分类
+        type: string
+        default: 论文解读
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: image
+        label: 封面图片（可选）
+        type: image
+      - name: draft
+        label: 草稿
+        type: boolean
+        default: true
+        description: 开启时不显示在博客上；准备发布时关闭，再保存。公开仓库中的草稿源文件仍然公开。
+      - name: body
+        label: 正文
+        type: code
+        required: true
+        description: 使用 Markdown 写作。行内公式用 $...$，独立公式用 $$...$$。图片可在媒体库上传后插入链接。
+        options:
+          format: markdown
+
+  - name: about
+    label: 关于页面
+    type: file
+    path: src/content/spec/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: body
+        label: 关于我
+        type: code
+        options:
+          format: markdown

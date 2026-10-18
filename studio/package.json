@@ -1,0 +1,7 @@
+{
+  "name": "paper-trails-studio",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "test": "node --test server.test.mjs" },
+  "dependencies": { "vditor": "4.0.1", "mathlive": "0.111.1", "yaml": "2.9.1" }
+}

@@ -31,3 +31,6 @@ yarn.lock
 *.iml
 .sites-runtime/
 .sites-checkout*
+
+.studio/
+!studio/package-lock.json

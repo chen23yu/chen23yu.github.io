@@ -64,7 +64,11 @@ export function createStudio({ root = path.resolve(here, '..'), port = 4318 } = 
       const staged = await git(['diff','--cached','--name-only']);
       if (staged) throw fail(409, 'Git 暂存区有其他改动，请先处理后再发布');
       await git(['fetch','origin','main']);
-      try { await git(['merge-base','--is-ancestor','origin/main','HEAD']); } catch { throw fail(409, 'GitHub 有新的改动，请先同步仓库再发布；文章仍保存在本地。'); }
+      try { await git(['merge-base','--is-ancestor','origin/main','HEAD']); }
+      catch {
+        try { await git(['merge','--ff-only','origin/main']); }
+        catch { throw fail(409, 'GitHub 与本地的改动暂时无法自动同步，请先处理版本差异；文章仍保存在本地，没有被覆盖。'); }
+      }
       // Validate the same Astro content schema used by the public blog before committing.
       await run(process.execPath, [path.join(root,'node_modules/astro/astro.js'),'build'], { cwd:root, windowsHide:true, timeout:180000, maxBuffer:4*1024*1024 });
       await git(['add','--','src/content/posts']);

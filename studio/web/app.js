@@ -150,7 +150,7 @@ async function init() {
     if (recovery && confirm('检测到上次未保存的文章内容，要恢复到编辑器吗？')) {
       let disk; try { disk = await api('/api/posts/' + recovery.slug); } catch {}
       if (disk && disk.version !== recovery.version) toast('文件已发生变化。为避免覆盖，未自动恢复旧内容。',12000);
-      else { populate({...recovery}); setTimeout(()=>changed(true),150); }
+      else { populate({...recovery}); setTimeout(()=>{ bodyDirty = true; changed(); },150); }
     }
   } catch {}
 }

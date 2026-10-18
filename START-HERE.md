@@ -40,7 +40,7 @@ pnpm new-post my-first-paper
 
 ## 部署到自己的 GitHub Pages
 
-已提供 `.github/workflows/deploy-pages.yml`，本地 origin 指向 `https://github.com/chen23yu/chen23yu.github.io.git`。远程上传和发布还需完成 GitHub 授权。
+已提供 `.github/workflows/deploy-pages.yml`，本地 origin 指向 `https://github.com/chen23yu/chen23yu.github.io.git`。已完成 GitHub CLI 账户授权，可提交并推送到 main 触发发布。
 
 1. 在 GitHub 新建公开仓库，建议命名为 `chen23yu.github.io`（已存在，复用当前仓库）。其他仓库名称也可使用。
 2. 将这个项目的源码提交到仓库的 `main` 分支，不需要提交 `node_modules`、`dist`、`.astro` 或 `.sites-runtime`。
@@ -50,7 +50,7 @@ pnpm new-post my-first-paper
 
 当前 `astro.config.mjs` 默认地址为 `https://chen23yu.github.io/`。GitHub Pages 工作流也会从仓库获取正式地址。D 盘项目已移除 Sites 专用身份文件。
 
-此前的私有 Sites 预览保持独立。此项目将在授权上传并成功构建后替换 GitHub Pages 上的旧博客。
+此前的私有 Sites 预览保持独立。此项目通过 GitHub Actions 发布，正式地址为 https://chen23yu.github.io/。
 
 ## 检查
 

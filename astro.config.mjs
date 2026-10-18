@@ -26,7 +26,7 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
-	site: process.env.SITE_URL || "https://chenyu23-paper-trails.hushed-moth-6109.chatgpt.site/",
+	site: process.env.SITE_URL || "https://chen23yu.github.io/",
 	base: "/",
 	trailingSlash: "always",
 	integrations: [
